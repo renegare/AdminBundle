@@ -37,15 +37,15 @@ Comment
             );
         }
 
-        public function preInsert($object)
+        public function preInsert()
         {
-            $object->setCreatedAt(new \DateTime);
-            $object->setUpdatedAt(new \DateTime);
+            $this->setCreatedAt(new \DateTime);
+            $this->setUpdatedAt(new \DateTime);
         }
 
-        public function preUpdate($object)
+        public function preUpdate()
         {
-            $object->setUpdatedAt(new \DateTime);
+            $this->setUpdatedAt(new \DateTime);
         }
     }
 
@@ -76,15 +76,15 @@ Post
             $this->comments = new \Doctrine\Common\Collections\ArrayCollection;
         }
 
-        public function preInsert($object)
+        public function preInsert()
         {
-            $object->setCreatedAt(new \DateTime);
-            $object->setUpdatedAt(new \DateTime);
+            $this->setCreatedAt(new \DateTime);
+            $this->setUpdatedAt(new \DateTime);
         }
 
-        public function preUpdate($object)
+        public function preUpdate()
         {
-            $object->setUpdatedAt(new \DateTime);
+            $this->setUpdatedAt(new \DateTime);
         }
     }
     
@@ -102,15 +102,15 @@ Tag
         protected $enabled;
         protected $posts;
 
-        public function preInsert($object)
+        public function preInsert()
         {
-            $object->setCreatedAt(new \DateTime);
-            $object->setUpdatedAt(new \DateTime);
+            $this->setCreatedAt(new \DateTime);
+            $this->setUpdatedAt(new \DateTime);
         }
 
-        public function preUpdate($object)
+        public function preUpdate()
         {
-            $object->setUpdatedAt(new \DateTime);
+            $this->setUpdatedAt(new \DateTime);
         }
     }
 
@@ -262,3 +262,5 @@ Generate getter and setter
 Run the doctrine command "doctrine:generate:entities" to fill in the relevant
 getter/setter methods for your new entities. This is usually accomplished by
 using the "console" application in your application directory.
+
+NOTE: You can also use annotations within your Entity classes in oppose to defining them separately in an xml/yaml file. Running "doctrine:generate:entities" will add any missing getter/setter methods.
